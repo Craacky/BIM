@@ -1,0 +1,23 @@
+{
+  "profiles": {
+    "BIM_Control": {
+      "commandName": "Project",
+      "commandLineArgs": "",
+      "workingDirectory": "$(ProjectDir)",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "nativeDebugging": false
+    },
+    "BIM_Control with LocalDB": {
+      "commandName": "Project",
+      "commandLineArgs": "",
+      "workingDirectory": "$(ProjectDir)",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ConnectionStrings__DefaultConnection": "Server=.\\SQLEXPRESS;Database=BIM_DB_Test;Trusted_Connection=True;Encrypt=false"
+      },
+      "nativeDebugging": false
+    }
+  }
+}

@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net5.0-windows</TargetFramework>
+        <LangVersion>10.0</LangVersion>
+        <Nullable>enable</Nullable>
+        <UseWindowsForms>true</UseWindowsForms>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <ApplicationIcon>Images\BIMv2.ico</ApplicationIcon>
+        <AssemblyName>BIMv2</AssemblyName>
+        <RootNamespace>BIMv2</RootNamespace>
+        <AssemblyTitle>BIMv2</AssemblyTitle>
+        <Product>BIMv2</Product>
+        <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+        <Platforms>AnyCPU;x86</Platforms>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Content Include="Images\**">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Components" Version="5.0.17" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.17">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.1" />
+        <PackageReference Include="Serilog" Version="3.0.1" />
+        <PackageReference Include="System.Data.SQLite" Version="1.0.118" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\BIM.Infrastructure\BIM.Infrastructure.csproj" />
+    </ItemGroup>
+
+
+</Project>

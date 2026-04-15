@@ -1,0 +1,50 @@
+#define MyAppName "BIMv2"
+#define MyAppVersion "2.0"
+#define MyAppPublisher "Craacky"
+#define MyAppExeName "BIMv2.exe"
+#define SourcePath "..\..\BIM_Control\bin\Debug\net5.0-windows"
+
+[Setup]
+; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
+; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
+AppId={{2A8E5E1C-6F4A-4B2E-9D3C-8A7B6C5D4E3F}
+AppName={#MyAppName}
+AppVersion={#MyAppVersion}
+AppPublisher={#MyAppPublisher}
+DefaultDirName={autopf}\{#MyAppName}
+DisableProgramGroupPage=yes
+; Require administrator privileges for installation and execution
+PrivilegesRequired=admin
+OutputDir=.
+OutputBaseFilename=BIMv2_Setup
+SetupIconFile=..\..\BIM_Control\Images\BIMv2.ico
+Compression=lzma
+SolidCompression=yes
+WizardStyle=modern
+LicenseFile=C:\Users\cbxjy\Projects\BIM _net56\_DevResources\license.rtf
+
+[Languages]
+Name: "english"; MessagesFile: "compiler:Default.isl"
+Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
+
+[Tasks]
+Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
+
+[Dirs]
+Name: "{commonappdata}\BIMv2"; Permissions: users-modify
+
+[Files]
+; Main executable
+Source: "{#SourcePath}\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+; All other files in the output directory (dlls, json, etc)
+Source: "{#SourcePath}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+; Important for administrators:
+; Offline mode is configured in {app}\appSettings.json
+; Key: AppMode -> OfflinePrinterFlow (true/false)
+
+[Icons]
+Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}";
+Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; 
+
+[Run]
+Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#MyAppName}}"; 
